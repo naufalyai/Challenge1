@@ -16,4 +16,4 @@ attribute_name = ['RevolvingUtilizationOfUnsecuredLines','age','NumberOfTime30-5
 used_attribute = []
 for i in range(np.shape(MI2)[0]):
     used_attribute.append(attribute_name[int(MI2[i,0])])
-print(used_attribute)
+print('used attribute : ', used_attribute)

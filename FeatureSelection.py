@@ -1,13 +1,15 @@
 from numpy import genfromtxt
 import numpy as np
-import pandas as pd
-from sklearn.preprocessing import Imputer
-from sklearn.feature_selection import mutual_info_classif
-from sklearn.feature_selection import VarianceThreshold
+
+# Load imputation data and mutual information data
 my_data = np.array(genfromtxt('cleanTraining.csv', delimiter=','))
 my_test = np.array(genfromtxt('cleanTesting.csv', delimiter=','))
 MI = np.array(genfromtxt('Mutual_Information.csv', delimiter=','))
+
+# calculate the mean of mutual information attributes
 rata = np.mean(MI[:,1])
+
+# get used attributes with mutual information value greater or equal to mean of mutual information
 MI2 = np.array(MI[MI[:,1] >= rata])
 print(MI2)
 attribute_name = ['RevolvingUtilizationOfUnsecuredLines','age','NumberOfTime30-59DaysPastDueNotWorse','DebtRatio','MonthlyIncome','NumberOfOpenCreditLinesAndLoans','NumberOfTimes90DaysLate','NumberRealEstateLoansOrLines','NumberOfTime60-89DaysPastDueNotWorse','NumberOfDependents']
